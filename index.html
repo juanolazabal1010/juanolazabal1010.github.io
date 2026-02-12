@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>San Valentín 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff99cc, #ffe6f2);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 120px;
+            font-size: 60px;
+            color: white;
+            text-shadow: 2px 2px 10px #ff0066;
+        }
+
+        button {
+            font-size: 25px;
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.2s;
+        }
+
+        #si {
+            background-color: #ff0066;
+            color: white;
+            left: 40%;
+            top: 350px;
+        }
+
+        #no {
+            background-color: gray;
+            color: white;
+            left: 55%;
+            top: 350px;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10%);
+            }
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>¿Quieres ser mi San Valentín Thatiana? 💖</h1>
+
+<button id="si" onclick="respuesta()">Sí 💘</button>
+<button id="no">No 😢</button>
+
+<script>
+    const botonNo = document.getElementById("no");
+
+    botonNo.addEventListener("mouseover", function() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        botonNo.style.left = x + "px";
+        botonNo.style.top = y + "px";
+    });
+
+    function respuesta() {
+        document.body.innerHTML = `
+        <h1 style="margin-top:200px; font-size:70px; color:white; text-shadow:2px 2px 10px red;">
+        ❤️ Ahora oficialmente eres mi San Valentín Thatiana ❤️
+        </h1>`;
+    }
+
+    function crearCorazon() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(crearCorazon, 300);
+</script>
+
+</body>
+</html>
+
