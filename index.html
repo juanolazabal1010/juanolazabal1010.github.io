@@ -1,107 +1,339 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>San Valentín 💖</title>
+<meta charset="UTF-8">
+<title>San Valentín 💖</title>
 
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: linear-gradient(to bottom, #ff99cc, #ffe6f2);
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        h1 {
-            margin-top: 120px;
-            font-size: 60px;
-            color: white;
-            text-shadow: 2px 2px 10px #ff0066;
-        }
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:'Segoe UI',sans-serif;
+}
 
-        button {
-            font-size: 25px;
-            padding: 15px 30px;
-            border-radius: 15px;
-            border: none;
-            cursor: pointer;
-            position: absolute;
-            transition: 0.2s;
-        }
+/* INICIO */
+#inicio{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,#ff9966,#ff5e62);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+font-size:45px;
+text-align:center;
+cursor:pointer;
+animation:parpadeo 1.5s infinite;
+}
 
-        #si {
-            background-color: #ff0066;
-            color: white;
-            left: 40%;
-            top: 350px;
-        }
+@keyframes parpadeo{
+0%{opacity:1;}
+50%{opacity:0.6;}
+100%{opacity:1;}
+}
 
-        #no {
-            background-color: gray;
-            color: white;
-            left: 55%;
-            top: 350px;
-        }
+/* CONTENIDO */
+#contenido{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,#ff99cc,#ffcce6);
+display:none;
+text-align:center;
+overflow:hidden;
+}
 
-        .heart {
-            position: absolute;
-            color: red;
-            font-size: 20px;
-            animation: fall linear infinite;
-        }
+h1{
+margin-top:90px;
+font-size:50px;
+color:white;
+text-shadow:0 0 20px #ff0066;
+}
 
-        @keyframes fall {
-            from {
-                transform: translateY(-10%);
-            }
-            to {
-                transform: translateY(110vh);
-            }
-        }
-    </style>
+/* BOTONES */
+button{
+font-size:25px;
+padding:15px 30px;
+border-radius:15px;
+border:none;
+cursor:pointer;
+position:absolute;
+transition:0.3s;
+}
+
+#si{
+background:#ff0066;
+color:white;
+left:40%;
+top:300px;
+}
+
+#no{
+background:gray;
+color:white;
+left:55%;
+top:300px;
+}
+
+/* FRASES */
+#mensajeNo{
+position:absolute;
+font-size:28px;
+color:white;
+text-shadow:0 0 10px red;
+display:none;
+}
+
+/* IMAGENES SEGUIDORAS */
+.imgSeguir{
+position:absolute;
+width:160px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+display:none;
+}
+
+/* CORAZONES */
+.heart{
+position:absolute;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+from{transform:translateY(-10%);}
+to{transform:translateY(110vh);}
+}
+
+/* CORAZON FINAL */
+#corazonVolador{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%) scale(0);
+font-size:200px;
+display:none;
+}
+
+/* CARTA */
+#carta{
+display:none;
+position:absolute;
+top:28%;
+width:70%;
+left:15%;
+font-size:28px;
+color:white;
+line-height:1.6;
+text-align:center;
+}
+
+/* FOTO ESPECIAL */
+#fotoEspecial{
+display:none;
+position:absolute;
+bottom:120px;
+left:50%;
+transform:translateX(-50%);
+width:220px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+
+/* FIRMA */
+#firma{
+display:none;
+position:absolute;
+bottom:40px;
+width:100%;
+text-align:center;
+font-size:22px;
+color:white;
+}
+
+/* ESQUINAS */
+.esquina{
+position:absolute;
+width:160px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+display:none;
+}
+
+#img1{top:20px;left:20px;}
+#img2{top:20px;right:20px;}
+#img3{bottom:20px;left:20px;}
+#img4{bottom:20px;right:20px;}
+
+</style>
 </head>
 
 <body>
 
-<h1>¿Quieres ser mi San Valentín Thatiana? 💖</h1>
+<div id="inicio">
+💖 Toca cualquier tecla para continuar este mensaje especial mi niña 💖
+</div>
 
-<button id="si" onclick="respuesta()">Sí 💘</button>
+<div id="contenido">
+
+<h1 id="titulo">¿Quieres ser mi San Valentín Ingeniera Thatiana? 💖</h1>
+
+<div id="mensajeNo"></div>
+
+<button id="si">Sí 💘</button>
 <button id="no">No 😢</button>
 
+<img src="feliz.jpg" id="imgSi" class="imgSeguir">
+<img src="triste.jpg" id="imgNo" class="imgSeguir">
+
+<div id="corazonVolador">❤️</div>
+
+<div id="carta"></div>
+<img src="especial.jpg" id="fotoEspecial">
+<div id="firma">Con amor, Ing. Juan Olazabal 💌</div>
+
+<img src="foto1.jpg" class="esquina" id="img1">
+<img src="foto2.jpg" class="esquina" id="img2">
+<img src="foto3.jpg" class="esquina" id="img3">
+<img src="foto4.jpg" class="esquina" id="img4">
+
+</div>
+
+<audio id="musica" loop>
+<source src="paulo.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-    const botonNo = document.getElementById("no");
 
-    botonNo.addEventListener("mouseover", function() {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-        botonNo.style.left = x + "px";
-        botonNo.style.top = y + "px";
-    });
+const inicio=document.getElementById("inicio");
+const contenido=document.getElementById("contenido");
+const botonNo=document.getElementById("no");
+const botonSi=document.getElementById("si");
+const audio=document.getElementById("musica");
+const imgNo=document.getElementById("imgNo");
+const imgSi=document.getElementById("imgSi");
+const mensajeNo=document.getElementById("mensajeNo");
+const corazonVolador=document.getElementById("corazonVolador");
+const carta=document.getElementById("carta");
+const firma=document.getElementById("firma");
+const titulo=document.getElementById("titulo");
+const fotoEspecial=document.getElementById("fotoEspecial");
+const esquinas=document.querySelectorAll(".esquina");
 
-    function respuesta() {
-        document.body.innerHTML = `
-        <h1 style="margin-top:200px; font-size:70px; color:white; text-shadow:2px 2px 10px red;">
-        ❤️ Ahora oficialmente eres mi San Valentín Thatiana ❤️
-        </h1>`;
-    }
+let escalaSi=1;
 
-    function crearCorazon() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
-        document.body.appendChild(heart);
+const frases=[
+"Hey tú 😠",
+"No me rompas el corazón 💔",
+"Esa opción no vale 😢",
+"Eso dolió 😭",
+"¿Segura? 🥺",
+"No me hagas esto 💘",
+"El corazón se pone triste 💔",
+"Intento fallido 😏",
+"Esa no era la respuesta 😤",
+"Me estás asustando 😳",
+"No seas cruel 😭",
+"El botón correcto es el rosa 😌",
+"Mi corazón late por ti 💓",
+"No me dejes en visto 😅",
+"Eso fue ilegal 🚫💔"
+];
 
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
-    }
+inicio.onclick=()=>{
+inicio.style.display="none";
+contenido.style.display="block";
+audio.play();
+};
 
-    setInterval(crearCorazon, 300);
+botonNo.onmouseover=()=>{
+
+let frase=frases[Math.floor(Math.random()*frases.length)];
+mensajeNo.innerText=frase;
+mensajeNo.style.display="block";
+
+let x=Math.random()*(window.innerWidth-120);
+let y=Math.random()*(window.innerHeight-80);
+
+botonNo.style.left=x+"px";
+botonNo.style.top=y+"px";
+
+mensajeNo.style.left=x+"px";
+mensajeNo.style.top=(y-45)+"px";
+
+imgNo.style.display="block";
+imgNo.style.left=(x-10)+"px";
+imgNo.style.top=(y+60)+"px";
+
+let siX=botonSi.offsetLeft;
+let siY=botonSi.offsetTop;
+
+imgSi.style.display="block";
+imgSi.style.left=(siX-10)+"px";
+imgSi.style.top=(siY+60)+"px";
+
+escalaSi+=0.2;
+botonSi.style.transform="scale("+escalaSi+")";
+};
+
+function crearCorazon(){
+const heart=document.createElement("div");
+heart.innerHTML="💖";
+heart.classList.add("heart");
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.fontSize=(Math.random()*30+20)+"px";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+contenido.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+}
+setInterval(crearCorazon,300);
+
+function escribir(texto,vel){
+let i=0;
+carta.innerHTML="";
+const intervalo=setInterval(()=>{
+carta.innerHTML+=texto.charAt(i);
+i++;
+if(i>=texto.length)clearInterval(intervalo);
+},vel);
+}
+
+botonSi.onclick=()=>{
+
+corazonVolador.style.display="block";
+
+let escala=0;
+const expandir=setInterval(()=>{
+escala+=0.1;
+corazonVolador.style.transform="translate(-50%,-50%) scale("+escala+")";
+
+if(escala>=8){
+clearInterval(expandir);
+corazonVolador.style.display="none";
+
+titulo.innerText="Ehhhh Alegría y Felicidad!";
+botonSi.style.display="none";
+botonNo.style.display="none";
+imgNo.style.display="none";
+imgSi.style.display="none";
+mensajeNo.style.display="none";
+
+carta.style.display="block";
+fotoEspecial.style.display="block";
+firma.style.display="block";
+
+escribir("Desde que llegaste a mi vida, todo tiene más luz, más alegría y más sentido. 💖 Hoy quiero que esta historia continúe juntos mi niña hermosa...",40);
+
+esquinas.forEach(img=>img.style.display="block");
+}
+
+},30);
+
+};
+
 </script>
 
 </body>
 </html>
-
